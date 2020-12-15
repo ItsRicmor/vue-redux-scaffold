@@ -3,12 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "export CLIENT_ENV=development && vue-cli-service serve",
+    "prod": "export CLIENT_ENV=production && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "moment": "^2.29.1",
+    "redux": "^4.0.5",
+    "redux-connect-vue": "^1.1.0",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-freeze": "^0.1.7",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "sjs-base-model": "^1.9.1",
+    "uuid": "^8.3.2",
     "vue": "^3.0.0"
   },
   "devDependencies": {

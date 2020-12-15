@@ -1,4 +1,17 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import { bindActionCreators } from 'redux';
+import ReduxConnectVue from 'redux-connect-vue';
+import rootStore from './stores/rootStore';
+import App from './App.vue';
 
-createApp(App).mount('#app')
+const initialState = {};
+const store = rootStore(initialState);
+
+const reduxConfig = {
+    store,
+    mapDispatchToPropsFactory: (actionCreators) => (dispatch) => bindActionCreators(actionCreators, dispatch),
+}
+
+createApp(App)
+    .use(ReduxConnectVue, reduxConfig)
+    .mount('#app')
